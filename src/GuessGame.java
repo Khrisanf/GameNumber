@@ -1,30 +1,14 @@
 public class GuessGame {
-    public boolean guessResult(int secretNumber, Guests guests, int currentPlayer) {
-        int compare = guests.getGuessNum();
-        String playerName = guests.getPlayerName(currentPlayer);
-
-
-        switch (currentPlayer) {
-            case 1:
-                playerName = guests.getPlayer1();
-                break;
-            case 2:
-                playerName = guests.getPlayer2();
-                break;
-            case 3:
-                playerName = guests.getPlayer3();
-                break;
-            default:
-                playerName = "Unknown Player";
-                break;
+    public boolean guessResult(int secretNumber, int guessNum, Guest guest) {
+        if (secretNumber != guessNum) {
+            System.out.println("Sorry, " + guest.getName() + ", that's not the right number. Next!");
+            return false;
         }
 
-        if (secretNumber == compare) {
-            System.out.println(playerName + " wins!");
-            return true;
-        } else {
-            System.out.println("Sorry, " + playerName + ", that's not the right number. Next!");
-        return false;
-        }
+        System.out.println(guest.getName() + " wins!");
+        return true;
     }
 }
+
+
+// secretNumber, NumburOfGuest
